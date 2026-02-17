@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname)));
 
 // Serve form-lock.html as the homepage/landing page when visiting root "/"
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'form-lock.html'));
+  res.sendFile(path.join(__dirname, 'form_lock.html'));
 });
 
 
