@@ -20,6 +20,14 @@ app.post('/logout-beacon', express.raw({type: '*/*'}), (req, res) => {
 // Serve static files
 app.use(express.static(path.join(__dirname)));
 
+
+// Serve form-lock.html as the homepage/landing page when visiting root "/"
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'form-lock.html'));
+});
+
+
+
 // In-memory lock storage (in real app: use database or Redis)
 const locks = new Map(); // formId -> { user, timestamp, socketId }
 const HEARTBEAT_INTERVAL = 10000;  // client sends every 10s
